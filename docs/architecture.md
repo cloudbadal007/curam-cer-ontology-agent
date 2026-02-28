@@ -2,7 +2,7 @@
 
 ## Why Ontology Instead of a Rules Engine
 
-Traditional rules engines (e.g., Drools, IBM ODM) encode logic in proprietary formats. OWL ontologies provide:
+Traditional rules engines (e.g., Drools, Merative ODM) encode logic in proprietary formats. OWL ontologies provide:
 
 - **Interoperability**: RDF/OWL are W3C standards; tools and reasoners are widely available
 - **Semantic clarity**: Classes and properties model the domain explicitly
