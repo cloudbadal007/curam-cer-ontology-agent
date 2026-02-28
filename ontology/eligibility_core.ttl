@@ -1,0 +1,198 @@
+# curam-cer-ontology-agent — Core Eligibility Ontology
+# Models Cúram CER concepts as OWL for agentic AI reasoning
+# Generic, educational — uses SNAP as reference program (public USDA docs)
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix elig: <http://curam.cer.ontology/eligibility#> .
+
+<http://curam.cer.ontology/eligibility_core>
+    a owl:Ontology ;
+    rdfs:label "Eligibility Core Ontology" ;
+    rdfs:comment "Core OWL ontology for government welfare eligibility determination. Models Cúram CER concepts." ;
+    owl:versionInfo "1.0.0" .
+
+# =============================================================================
+# CLASSES
+# =============================================================================
+
+elig:Applicant a owl:Class ;
+    rdfs:label "Applicant" ;
+    rdfs:comment "An individual applying for benefits" .
+
+elig:Household a owl:Class ;
+    rdfs:label "Household" ;
+    rdfs:comment "The unit of assessment — contains one or more Applicants" .
+
+elig:HouseholdMember a owl:Class ;
+    rdfs:label "HouseholdMember" ;
+    rdfs:comment "Individual member of a household" .
+
+elig:Program a owl:Class ;
+    rdfs:label "Program" ;
+    rdfs:comment "A government benefit program" .
+
+elig:EligibilityPeriod a owl:Class ;
+    rdfs:label "EligibilityPeriod" ;
+    rdfs:comment "A specific week/month for which eligibility is assessed" .
+
+elig:EligibilityDecision a owl:Class ;
+    rdfs:label "EligibilityDecision" ;
+    rdfs:comment "The output — ELIGIBLE, INELIGIBLE, PENDING_VERIFICATION" .
+
+elig:EvidenceRecord a owl:Class ;
+    rdfs:label "EvidenceRecord" ;
+    rdfs:comment "A piece of evidence submitted by an applicant" .
+
+elig:IncomeEvidence a owl:Class ;
+    rdfs:subClassOf elig:EvidenceRecord ;
+    rdfs:label "IncomeEvidence" ;
+    rdfs:comment "Evidence of income (subclass of EvidenceRecord)" .
+
+elig:ResidencyEvidence a owl:Class ;
+    rdfs:subClassOf elig:EvidenceRecord ;
+    rdfs:label "ResidencyEvidence" ;
+    rdfs:comment "Evidence of residency (subclass of EvidenceRecord)" .
+
+elig:IdentityEvidence a owl:Class ;
+    rdfs:subClassOf elig:EvidenceRecord ;
+    rdfs:label "IdentityEvidence" ;
+    rdfs:comment "Evidence of identity (subclass of EvidenceRecord)" .
+
+elig:PolicyThreshold a owl:Class ;
+    rdfs:label "PolicyThreshold" ;
+    rdfs:comment "A legislated limit (e.g., 130% FPL for SNAP)" .
+
+elig:RuleExecution a owl:Class ;
+    rdfs:label "RuleExecution" ;
+    rdfs:comment "Audit record of a single rule being evaluated" .
+
+# =============================================================================
+# OBJECT PROPERTIES
+# =============================================================================
+
+elig:hasMember a owl:ObjectProperty ;
+    rdfs:domain elig:Household ;
+    rdfs:range elig:HouseholdMember ;
+    rdfs:label "hasMember" .
+
+elig:submittedEvidence a owl:ObjectProperty ;
+    rdfs:domain elig:Applicant ;
+    rdfs:range elig:EvidenceRecord ;
+    rdfs:label "submittedEvidence" .
+
+elig:appliesForProgram a owl:ObjectProperty ;
+    rdfs:domain elig:Applicant ;
+    rdfs:range elig:Program ;
+    rdfs:label "appliesForProgram" .
+
+elig:hasDecision a owl:ObjectProperty ;
+    rdfs:domain elig:EligibilityPeriod ;
+    rdfs:range elig:EligibilityDecision ;
+    rdfs:label "hasDecision" .
+
+elig:triggeredRule a owl:ObjectProperty ;
+    rdfs:domain elig:EligibilityDecision ;
+    rdfs:range elig:RuleExecution ;
+    rdfs:label "triggeredRule" .
+
+elig:hasThreshold a owl:ObjectProperty ;
+    rdfs:domain elig:Program ;
+    rdfs:range elig:PolicyThreshold ;
+    rdfs:label "hasThreshold" .
+
+elig:assessedForProgram a owl:ObjectProperty ;
+    rdfs:domain elig:EligibilityDecision ;
+    rdfs:range elig:Program ;
+    rdfs:label "assessedForProgram" .
+
+elig:appliesToHousehold a owl:ObjectProperty ;
+    rdfs:domain elig:EligibilityDecision ;
+    rdfs:range elig:Household ;
+    rdfs:label "appliesToHousehold" .
+
+# =============================================================================
+# DATATYPE PROPERTIES
+# =============================================================================
+
+elig:grossMonthlyIncome a owl:DatatypeProperty ;
+    rdfs:domain elig:Household ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "grossMonthlyIncome" .
+
+elig:householdSize a owl:DatatypeProperty ;
+    rdfs:domain elig:Household ;
+    rdfs:range xsd:integer ;
+    rdfs:label "householdSize" .
+
+elig:residencyState a owl:DatatypeProperty ;
+    rdfs:domain elig:Applicant ;
+    rdfs:range xsd:string ;
+    rdfs:label "residencyState" .
+
+elig:isIdentityVerified a owl:DatatypeProperty ;
+    rdfs:domain elig:Applicant ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "isIdentityVerified" .
+
+elig:programCode a owl:DatatypeProperty ;
+    rdfs:domain elig:Program ;
+    rdfs:range xsd:string ;
+    rdfs:label "programCode" .
+
+elig:administeredInState a owl:DatatypeProperty ;
+    rdfs:domain elig:Program ;
+    rdfs:range xsd:string ;
+    rdfs:label "administeredInState" .
+
+elig:thresholdPercentFPL a owl:DatatypeProperty ;
+    rdfs:domain elig:PolicyThreshold ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "thresholdPercentFPL" .
+
+elig:thresholdForHouseholdSize a owl:DatatypeProperty ;
+    rdfs:domain elig:PolicyThreshold ;
+    rdfs:range xsd:integer ;
+    rdfs:label "thresholdForHouseholdSize" .
+
+elig:monthlyIncomeLimit a owl:DatatypeProperty ;
+    rdfs:domain elig:PolicyThreshold ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "monthlyIncomeLimit" .
+
+elig:periodStartDate a owl:DatatypeProperty ;
+    rdfs:domain elig:EligibilityPeriod ;
+    rdfs:range xsd:date ;
+    rdfs:label "periodStartDate" .
+
+elig:periodEndDate a owl:DatatypeProperty ;
+    rdfs:domain elig:EligibilityPeriod ;
+    rdfs:range xsd:date ;
+    rdfs:label "periodEndDate" .
+
+elig:decisionStatus a owl:DatatypeProperty ;
+    rdfs:domain elig:EligibilityDecision ;
+    rdfs:range xsd:string ;
+    rdfs:label "decisionStatus" .
+
+elig:ruleId a owl:DatatypeProperty ;
+    rdfs:domain elig:RuleExecution ;
+    rdfs:range xsd:string ;
+    rdfs:label "ruleId" .
+
+elig:ruleResult a owl:DatatypeProperty ;
+    rdfs:domain elig:RuleExecution ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "ruleResult" .
+
+elig:ruleReason a owl:DatatypeProperty ;
+    rdfs:domain elig:RuleExecution ;
+    rdfs:range xsd:string ;
+    rdfs:label "ruleReason" .
+
+elig:householdId a owl:DatatypeProperty ;
+    rdfs:domain elig:Household ;
+    rdfs:range xsd:string ;
+    rdfs:label "householdId" .

@@ -1,0 +1,143 @@
+# SNAP (Supplemental Nutrition Assistance Program) Rules
+# Imports eligibility_core and adds SNAP-specific instances
+# Income limits based on USDA FY2026 (130% FPL), 48 contiguous states
+# Reference: https://www.fns.usda.gov/snap
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix elig: <http://curam.cer.ontology/eligibility#> .
+@prefix snap: <http://curam.cer.ontology/snap#> .
+
+<http://curam.cer.ontology/snap>
+    a owl:Ontology ;
+    rdfs:label "SNAP Rules Ontology" ;
+    rdfs:comment "SNAP-specific eligibility rules and thresholds. Public USDA data." ;
+    owl:imports <http://curam.cer.ontology/eligibility_core> .
+
+# =============================================================================
+# SNAP PROGRAM INSTANCE
+# =============================================================================
+
+snap:SNAP_Program a elig:Program ;
+    rdfs:label "SNAP Program" ;
+    elig:programCode "SNAP" ;
+    elig:administeredInState "" ;
+    rdfs:comment "Supplemental Nutrition Assistance Program - federal program administered in all states" .
+
+# =============================================================================
+# SNAP GROSS INCOME TEST — 130% FPL
+# FY2026 limits for 48 contiguous states (effective Oct 2025)
+# =============================================================================
+
+snap:SNAP_GrossIncomeTest_Size1 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Gross Income Limit — 1 person" ;
+    elig:thresholdPercentFPL 130 ;
+    elig:thresholdForHouseholdSize 1 ;
+    elig:monthlyIncomeLimit 1696 .
+
+snap:SNAP_GrossIncomeTest_Size2 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Gross Income Limit — 2 persons" ;
+    elig:thresholdPercentFPL 130 ;
+    elig:thresholdForHouseholdSize 2 ;
+    elig:monthlyIncomeLimit 2292 .
+
+snap:SNAP_GrossIncomeTest_Size3 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Gross Income Limit — 3 persons" ;
+    elig:thresholdPercentFPL 130 ;
+    elig:thresholdForHouseholdSize 3 ;
+    elig:monthlyIncomeLimit 2888 .
+
+snap:SNAP_GrossIncomeTest_Size4 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Gross Income Limit — 4 persons" ;
+    elig:thresholdPercentFPL 130 ;
+    elig:thresholdForHouseholdSize 4 ;
+    elig:monthlyIncomeLimit 3483 .
+
+snap:SNAP_GrossIncomeTest_Size5 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Gross Income Limit — 5 persons" ;
+    elig:thresholdPercentFPL 130 ;
+    elig:thresholdForHouseholdSize 5 ;
+    elig:monthlyIncomeLimit 4079 .
+
+snap:SNAP_GrossIncomeTest_Size6 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Gross Income Limit — 6 persons" ;
+    elig:thresholdPercentFPL 130 ;
+    elig:thresholdForHouseholdSize 6 ;
+    elig:monthlyIncomeLimit 4675 .
+
+snap:SNAP_GrossIncomeTest_Size7 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Gross Income Limit — 7 persons" ;
+    elig:thresholdPercentFPL 130 ;
+    elig:thresholdForHouseholdSize 7 ;
+    elig:monthlyIncomeLimit 5271 .
+
+snap:SNAP_GrossIncomeTest_Size8 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Gross Income Limit — 8 persons" ;
+    elig:thresholdPercentFPL 130 ;
+    elig:thresholdForHouseholdSize 8 ;
+    elig:monthlyIncomeLimit 5867 .
+
+# =============================================================================
+# SNAP NET INCOME TEST — 100% FPL (for reference)
+# FY2026 limits — used after gross income test passes
+# =============================================================================
+
+snap:SNAP_NetIncomeTest_Size1 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Net Income Limit — 1 person" ;
+    elig:thresholdPercentFPL 100 ;
+    elig:thresholdForHouseholdSize 1 ;
+    elig:monthlyIncomeLimit 1305 .
+
+snap:SNAP_NetIncomeTest_Size2 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Net Income Limit — 2 persons" ;
+    elig:thresholdPercentFPL 100 ;
+    elig:thresholdForHouseholdSize 2 ;
+    elig:monthlyIncomeLimit 1763 .
+
+snap:SNAP_NetIncomeTest_Size3 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Net Income Limit — 3 persons" ;
+    elig:thresholdPercentFPL 100 ;
+    elig:thresholdForHouseholdSize 3 ;
+    elig:monthlyIncomeLimit 2221 .
+
+snap:SNAP_NetIncomeTest_Size4 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Net Income Limit — 4 persons" ;
+    elig:thresholdPercentFPL 100 ;
+    elig:thresholdForHouseholdSize 4 ;
+    elig:monthlyIncomeLimit 2680 .
+
+snap:SNAP_NetIncomeTest_Size5 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Net Income Limit — 5 persons" ;
+    elig:thresholdPercentFPL 100 ;
+    elig:thresholdForHouseholdSize 5 ;
+    elig:monthlyIncomeLimit 3138 .
+
+snap:SNAP_NetIncomeTest_Size6 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Net Income Limit — 6 persons" ;
+    elig:thresholdPercentFPL 100 ;
+    elig:thresholdForHouseholdSize 6 ;
+    elig:monthlyIncomeLimit 3596 .
+
+snap:SNAP_NetIncomeTest_Size7 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Net Income Limit — 7 persons" ;
+    elig:thresholdPercentFPL 100 ;
+    elig:thresholdForHouseholdSize 7 ;
+    elig:monthlyIncomeLimit 4055 .
+
+snap:SNAP_NetIncomeTest_Size8 a elig:PolicyThreshold ;
+    rdfs:label "SNAP Net Income Limit — 8 persons" ;
+    elig:thresholdPercentFPL 100 ;
+    elig:thresholdForHouseholdSize 8 ;
+    elig:monthlyIncomeLimit 4513 .
+
+# Link thresholds to SNAP program
+snap:SNAP_Program elig:hasThreshold snap:SNAP_GrossIncomeTest_Size1 .
+snap:SNAP_Program elig:hasThreshold snap:SNAP_GrossIncomeTest_Size2 .
+snap:SNAP_Program elig:hasThreshold snap:SNAP_GrossIncomeTest_Size3 .
+snap:SNAP_Program elig:hasThreshold snap:SNAP_GrossIncomeTest_Size4 .
+snap:SNAP_Program elig:hasThreshold snap:SNAP_GrossIncomeTest_Size5 .
+snap:SNAP_Program elig:hasThreshold snap:SNAP_GrossIncomeTest_Size6 .
+snap:SNAP_Program elig:hasThreshold snap:SNAP_GrossIncomeTest_Size7 .
+snap:SNAP_Program elig:hasThreshold snap:SNAP_GrossIncomeTest_Size8 .

@@ -1,0 +1,122 @@
+[
+  {
+    "household_id": "HH-E01",
+    "household_size": 1,
+    "gross_monthly_income": 1200,
+    "state": "CA",
+    "identity_verified": true,
+    "expected": "ELIGIBLE"
+  },
+  {
+    "household_id": "HH-E02",
+    "household_size": 2,
+    "gross_monthly_income": 2000,
+    "state": "TX",
+    "identity_verified": true,
+    "expected": "ELIGIBLE"
+  },
+  {
+    "household_id": "HH-E03",
+    "household_size": 4,
+    "gross_monthly_income": 3000,
+    "state": "NY",
+    "identity_verified": true,
+    "expected": "ELIGIBLE"
+  },
+  {
+    "household_id": "HH-E04",
+    "household_size": 3,
+    "gross_monthly_income": 2500,
+    "state": "FL",
+    "identity_verified": true,
+    "expected": "ELIGIBLE"
+  },
+  {
+    "household_id": "HH-E05",
+    "household_size": 5,
+    "gross_monthly_income": 3800,
+    "state": "IL",
+    "identity_verified": true,
+    "expected": "ELIGIBLE"
+  },
+  {
+    "household_id": "HH-I01",
+    "household_size": 1,
+    "gross_monthly_income": 2500,
+    "state": "CA",
+    "identity_verified": true,
+    "expected": "INELIGIBLE"
+  },
+  {
+    "household_id": "HH-I02",
+    "household_size": 2,
+    "gross_monthly_income": 4000,
+    "state": "TX",
+    "identity_verified": true,
+    "expected": "INELIGIBLE"
+  },
+  {
+    "household_id": "HH-I03",
+    "household_size": 4,
+    "gross_monthly_income": 5000,
+    "state": "NY",
+    "identity_verified": true,
+    "expected": "INELIGIBLE"
+  },
+  {
+    "household_id": "HH-I04",
+    "household_size": 3,
+    "gross_monthly_income": 3500,
+    "state": "FL",
+    "identity_verified": true,
+    "expected": "INELIGIBLE"
+  },
+  {
+    "household_id": "HH-I05",
+    "household_size": 6,
+    "gross_monthly_income": 6000,
+    "state": "IL",
+    "identity_verified": true,
+    "expected": "INELIGIBLE"
+  },
+  {
+    "household_id": "HH-R01",
+    "household_size": 2,
+    "gross_monthly_income": 1500,
+    "state": "WY",
+    "identity_verified": true,
+    "expected": "ELIGIBLE"
+  },
+  {
+    "household_id": "HH-P01",
+    "household_size": 2,
+    "gross_monthly_income": 1800,
+    "state": "CA",
+    "identity_verified": false,
+    "expected": "PENDING_VERIFICATION"
+  },
+  {
+    "household_id": "HH-P02",
+    "household_size": 4,
+    "gross_monthly_income": 3000,
+    "state": "TX",
+    "identity_verified": false,
+    "expected": "PENDING_VERIFICATION"
+  },
+  {
+    "household_id": "HH-EDGE01",
+    "household_size": 1,
+    "gross_monthly_income": 1696,
+    "state": "CA",
+    "identity_verified": true,
+    "expected": "ELIGIBLE"
+  },
+  {
+    "household_id": "HH-EDGE02",
+    "household_size": 4,
+    "gross_monthly_income": 3483,
+    "state": "NY",
+    "identity_verified": true,
+    "expected": "ELIGIBLE"
+  }
+]

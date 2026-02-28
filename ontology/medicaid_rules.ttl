@@ -1,0 +1,23 @@
+# Medicaid Rules — Placeholder/Stub
+# This file provides the structure for future Medicaid rule expansion.
+# Medicaid eligibility varies significantly by state; this is a stub for demonstration.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix elig: <http://curam.cer.ontology/eligibility#> .
+@prefix medicaid: <http://curam.cer.ontology/medicaid#> .
+
+<http://curam.cer.ontology/medicaid>
+    a owl:Ontology ;
+    rdfs:label "Medicaid Rules Ontology (Stub)" ;
+    rdfs:comment "Medicaid eligibility rules — stub for future expansion. Medicaid is state-administered with state-specific rules." ;
+    owl:imports <http://curam.cer.ontology/eligibility_core> .
+
+# Medicaid program instance (stub)
+medicaid:Medicaid_Program a elig:Program ;
+    rdfs:label "Medicaid Program" ;
+    elig:programCode "MEDICAID" ;
+    elig:administeredInState "" ;
+    rdfs:comment "Medicaid — state-administered. Thresholds and rules vary by state. This is a placeholder." .

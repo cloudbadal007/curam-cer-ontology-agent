@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curam-cer-ontology-agent"
+version = "1.0.0"
+description = "Agentic AI for government eligibility determination using OWL ontology and MCP"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Pankaj Kumar" }]
+license = { text = "MIT" }
+dependencies = [
+    "rdflib>=7.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "mcp[cli]>=1.0.0",
+    "langchain>=0.3.0",
+    "langchain-openai>=0.2.0",
+    "langchain-anthropic>=0.2.0",
+    "uvicorn[standard]>=0.30.0",
+    "starlette>=0.38.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.24.0",
+    "black>=24.0.0",
+    "isort>=5.13.0",
+    "mypy>=1.11.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
