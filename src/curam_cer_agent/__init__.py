@@ -1,7 +1,7 @@
 """
 curam-cer-ontology-agent — Agentic AI for government eligibility determination.
 
-Migrates legacy IBM Cúram CER (Cúram Express Rules) into a modern architecture
+Migrates legacy Merative Cúram CER (Cúram Express Rules) into a modern architecture
 using OWL ontology, MCP tools, and LangChain agents.
 
 This package does not reference any specific government client or proprietary system.

@@ -2,7 +2,7 @@
 
 **Agentic AI for government welfare eligibility determination using OWL ontology, MCP, and LangChain**
 
-This project demonstrates how to migrate legacy IBM Cúram CER (Cúram Express Rules) into a modern Agentic AI architecture. It uses SNAP (Supplemental Nutrition Assistance Program) as the reference—a publicly documented US welfare program.
+This project demonstrates how to migrate legacy Merative Cúram CER (Cúram Express Rules) into a modern Agentic AI architecture. It uses SNAP (Supplemental Nutrition Assistance Program) as the reference—a publicly documented US welfare program.
 
 ## Architecture
 
