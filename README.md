@@ -4,6 +4,8 @@
 
 This project demonstrates how to migrate legacy Merative Cúram CER (Cúram Express Rules) into a modern Agentic AI architecture. It uses SNAP (Supplemental Nutrition Assistance Program) as the reference—a publicly documented US welfare program.
 
+> **Disclaimer** — This project is built entirely from publicly available information—official documentation, auditor reports, news articles, and industry publications. No proprietary or confidential information was used.
+
 ## Architecture
 
 ```
